@@ -55,6 +55,43 @@ namespace BinarySearchTreeProject
                 }
             }
         }
-
+        public void Search(int x)
+        {
+            Node current = root;
+            while (current != null)
+            {
+                if (x < current.data)
+                {
+                    if (current.leftChild != null)
+                    {
+                        current = current.leftChild;
+                        Console.WriteLine("Moving left");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Number can't be found");
+                        break;
+                    }
+                }
+                else if (x > current.data)
+                {
+                    if(current.rightChild != null)
+                    {
+                        current = current.rightChild;
+                        Console.WriteLine("Moving right");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Number can't be found");
+                        break;
+                    }             
+                }
+                else if (x == current.data)
+                {
+                    Console.WriteLine($"We've found {x} ");
+                    break;
+                }
+            }
+        }
     }
 }
